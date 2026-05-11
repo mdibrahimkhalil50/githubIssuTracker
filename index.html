@@ -7,24 +7,24 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://cdn.jsdelivr.net/npm/daisyui@5" rel="stylesheet" type="text/css" />
    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
-    <link rel="shortcut icon" href="/assets/github-logo.png" type="image/x-icon">
+    <link rel="shortcut icon" href="/assets/social.png" type="image/x-icon">
 </head>
 <body>
-    <section class="lg:w-[40%] mx-auto  m-4 border-2 border-pink-600">
-        <div class=" mx-auto justify-items-center items-center border-sky-300 border-2 space-y-2">
+    <section class="lg:w-[40%] mx-auto  m-4 ">
+        <div class=" mx-auto justify-items-center items-center space-y-2">
         <img class="" src="./assets/github-logo.png" alt="">
         <h1 class="font-bold text-[#1F2937]">GitHub Issues Tracker</h1>
         <p class="text-[#64748B]">Sign in to manage your issues</p>
         </div>
         <div class=" flex flex-col col-span-full ">
-        <fieldset class="fieldset border-4 border-green-500 rounded-box   flex flex-col space-y-1">
+        <fieldset class="fieldset  rounded-box   flex flex-col space-y-1">
   <!-- <legend class="fieldset-legend">Login</legend> -->
 
   <label class="label text-black font-bold text-[16px]">Username</label>
-  <input class="w-full h-10 border border-[#E4E4E7] rounded-box" type="text" class="input" placeholder="Enter Username" />
+  <input id="input-userName" class="input w-full h-10 border border-[#E4E4E7] rounded-box" type="text"  placeholder="Enter Username" />
 
   <label class="label text-black font-bold text-[16px]">Password</label>
-  <input class="w-full h-10 border-[#E4E4E7] rounded-box" type="password" class="input" placeholder="Password" />
+  <input id="input-password" class="input w-full h-10 border border-[#E4E4E7] rounded-box" type="password" placeholder="Password" />
 </fieldset>
 
 <!--  remember button add -->
@@ -33,7 +33,7 @@
 
   <label class="text-black">Remember me</label>
 </div>
-<button class="bg-[#4A00FF] text-white px-4 py-2 rounded my-5 font-extrabold text-[16px]">Sign In</button>
+<button id="signIn-btn" class="bg-[#4A00FF] text-white px-4 py-2 rounded my-5 font-extrabold text-[16px]">Sign In</button>
  </div>
 
  <!-- or part -->
@@ -43,11 +43,11 @@
   <hr class="flex-grow border-gray-300">
 </div>
 
-<div class="text-center border-4 border-green-500  m-4 w-full rounded-box mx-auto">
+<div class="text-center   m-4 w-full rounded-box mx-auto">
   <p class="text-[#64748B]  mb-4">
     Demo Credentials:
   </p>
-  <div class="border border-green-400 bg-base-200  p-4 rounded">
+  <div class="  bg-base-200  p-4 rounded">
     <p>
       <span class="font-bold">Username:</span> admin
     </p>
@@ -58,5 +58,19 @@
 </div>
 
 </section>
+
+<!-- all script connect -->
+ <script src="allScript/login.js"></script>
 </body>
 </html>
+
+
+
+
+
+
+
+
+
+
+
