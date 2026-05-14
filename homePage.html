@@ -4,131 +4,190 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>home Page</title>
- <link href="https://cdn.jsdelivr.net/npm/daisyui@5" rel="stylesheet" type="text/css" />
-     <!-- <script src="https://cdn.tailwindcss.com"></script> -->
-   
-   <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
-    <link rel="shortcut icon" href="/assets/social.png" type="image/x-icon">
-    <!-- google font add -->
- <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&display=swap" rel="stylesheet">
-<!-- used font awesome icon -->
- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css" integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <!-- DaisyUI -->
+    <link
+        href="https://cdn.jsdelivr.net/npm/daisyui@5"
+        rel="stylesheet"
+        type="text/css"
+    />
 
-<style>
-    *{
-        font-family: "Outfit", sans-serif;
-    }
-</style>
+    <!-- Tailwind -->
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+
+    <!-- Font Awesome -->
+    <link
+        rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+    />
 
 </head>
-<body style="">
-    <section>
-        <nav class="flex justify-between px-10 border-2 border-blue-500 items-center rounded-md">
-            <div class="flex items-center p-5 gap-2">
-               <img class="h-10 w-10" src="./assets/github-logo.png" alt="">
-               <h1 class="font-bold">GitHub Issues Tracker</h1>
-            </div>
+<body>
+    
+       <body class="bg-[#F4F7FE] min-h-screen">
 
+    <nav class="bg-white shadow-sm px-10 py-4 flex justify-between items-center">
 
-            <div class="flex gap-4">
-                    <!-- search function add  -->
-<label class="input border border-[#E4E4E7] rounded-box">
-  <svg class="h-[1em] opacity-50" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-    <g
-      stroke-linejoin="round"
-      stroke-linecap="round"
-      stroke-width="2.5"
-      fill="none"
-      stroke="currentColor"
-    >
-      <circle cx="11" cy="11" r="8"></circle>
-      <path d="m21 21-4.3-4.3"></path>
-    </g>
-  </svg>
-  <input id="searchInput" type="search" required placeholder="Search Issues ...." />
-</label>
-<!-- search btn -->
- <button
-        onclick="searchIssues()"
-        class="btn btn-primary text-white border-none"
-      >
-        Search
-      </button> 
-
-<button  class="btn btn-primary font-bold">+ New Issue</button>
- </div>
-</nav>
-</section>
-<!--  three btn parts -->
-<section>
-<div class="border-2 border-red-500 p-4 flex gap-3 max-w-5xl mx-auto mt-10 mb-4 rounded-lg">
-
-<button id="allBtn" onclick="showAll()" class="btn btn-primary py-2 px-10">All</button>
-<button id="openBtn" onclick="showOpen()" class="btn btn-primary py-2 px-10">Open</button>
-<button id="closedBtn" onclick="showClosed()" class="btn btn-primary py-2 px-10">Closed</button>
-
-</div>
-
-
-
-<section class="border-2 border-teal-400 p-2 gap-3 max-w-5xl mx-auto rounded-lg">
-<div class=" border-2 border-purple-500 rounded-xl p-5  flex justify-between items-center">
-
-      <!-- Left -->
-      <div>
-
+        <!-- Left -->
         <div class="flex items-center gap-3">
 
-          <div class="w-10 h-10 rounded-full bg-purple-100 flex items-center justify-center">
+            <img
+                class="w-10 h-10"
+                src="../assets/github-logo.png"
+                alt=""
+            >
 
-            <span >
-              <img  src="./assets/Aperture.png" alt="">
-            </span>
+            <h1 class="font-bold text-xl">
 
-          </div>
+                GitHub Issues Tracker
 
-          <div>
+            </h1>
 
-            <h2 class="font-semibold text-xl">
-              <span id="totalIssues" class="text-2xl font-bold">00</span> Issues
-            </h2>
+        </div>
+        <!-- Right -->
+        <div class="flex items-center gap-4">
 
-            <p class="text-sm text-gray-500">
-              Track and manage your project issues
-            </p>
+            <!-- Search -->
+            <label class="input input-bordered flex items-center gap-2 rounded-full w-72">
 
-          </div>
+                <i class="fa-solid fa-magnifying-glass text-gray-400"></i>
+
+                <input
+                    id="searchInput"
+                    type="text"
+                    class="grow"
+                    placeholder="Search Issues...."
+                />
+
+            </label>
+
+            <!-- Search Button -->
+            <button
+                onclick="searchIssues()"
+                class="btn bg-[#4A00FF] text-white border-none rounded-xl"
+            >
+
+                Search
+
+            </button>
+            <!-- New Issue btn -->
+            <button
+                class="btn bg-[#4A00FF] text-white border-none rounded-xl"
+            >
+
+                + New Issue
+
+            </button>
 
         </div>
 
-      </div>
+    </nav>
 
-      <!-- Right -->
-      <div class="flex gap-5 text-sm">
+    <!-- hero section start  -->
+    <section class="max-w-7xl mx-auto p-6 space-y-2">
 
-        <div class="flex items-center gap-2">
+        <div class="bg-white rounded-xl shadow-sm border p-5">
 
-          <div class="w-2 h-2 rounded-full bg-green-500"></div>
+            <div class="flex gap-4">
 
-          <span>Open</span>
+                <!-- All -->
+                <button
+                    id="allBtn"
+                    onclick="showAll()"
+                    class="btn rounded-xl px-8"
+                >
+                    All
+                </button>
+                <!-- Open btn-->
+                <button
+                    id="openBtn"
+                    onclick="showOpen()"
+                    class="btn rounded-xl px-8"
+                >
+                    Open
+                </button>
+
+                <!-- Closed btn-->
+                <button
+                    id="closedBtn"
+                    onclick="showClosed()"
+                    class="btn rounded-xl px-8"
+                >
+
+                    Closed
+
+                </button>
+
+            </div>
 
         </div>
 
-        <div class="flex items-center gap-2">
+          <div class="bg-white rounded-2xl shadow-sm border p-6 flex justify-between items-center">
 
-          <div class="w-2 h-2 rounded-full bg-purple-500"></div>
+            <!-- Left -->
+            <div>
 
-          <span>Closed</span>
+                <div class="flex items-center gap-4">
+
+                    <div class="w-14 h-14 rounded-full bg-purple-100 flex items-center justify-center">
+
+                        <img src="../assets/Aperture.png" alt="">
+
+                    </div>
+
+                    <div>
+
+                        <h2 class="text-2xl font-bold">
+
+                            <span id="totalIssues">  0
+                            </span>
+                            Issues
+                        </h2>
+                        <p class="text-sm text-gray-500">
+
+                            Track and manage your project issues
+
+                        </p>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+            <!-- Right -->
+            <div class="flex gap-6">
+
+                <!-- Open -->
+                <div class="flex items-center gap-2">
+
+                    <div class="w-3 h-3 rounded-full bg-green-500"></div>
+
+                    <p class="text-sm">
+
+                        Open
+
+                    </p>
+
+                </div>
+
+                <!-- Closed -->
+                <div class="flex items-center gap-2">
+
+                    <div class="w-3 h-3 rounded-full bg-[#4A00FF]"></div>
+
+                    <p class="text-sm">
+
+                        Closed
+
+                    </p>
+
+                </div>
+
+            </div>
 
         </div>
 
-      </div>
-
-    </div>
-</section>
-<div
+    <div
       id="issuesContainer"
       class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 mt-5"
     >
@@ -136,11 +195,8 @@
     </div>
 </section>
 
-<!-- api loading card design part -->
-
 
 <script src="allScript/homePage.js"></script>
-
 
 </body>
 </html>
