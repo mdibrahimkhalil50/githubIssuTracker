@@ -224,3 +224,137 @@ const URL =
             setActiveButton("closedBtn");
 
         }
+        async function searchIssues() {
+            const text =
+            document.getElementById("searchInput")
+            .value;
+            const response =
+            await fetch(
+                URL +
+                "/issues/search?q=" +
+                text
+            );
+            const data =
+            await response.json();
+
+            displayIssues(data.data);
+
+        }
+        // Details Modal
+        async function showDetails(id) {
+
+            const response =
+            await fetch(
+
+                URL +
+
+                "/issue/" +
+                id
+            );
+            const data =
+            await response.json();
+            const issue =
+            data.data;
+            // Status Color
+            let statusColor = "";
+            if(issue.status === "open")
+             {
+                statusColor =
+                "bg-green-500";
+            }
+            else {
+                statusColor =
+                "bg-[#4A00FF]";
+
+            }
+            // Priority Color
+            let priorityColor = "";
+            if(issue.priority === "high") {
+
+                priorityColor =
+                "bg-red-500";
+
+            }
+
+            else if(issue.priority === "medium") {
+
+                priorityColor =
+                "bg-yellow-500";
+
+            }
+
+            else {
+
+                priorityColor =
+                "bg-green-500";
+
+            }
+document.getElementById("modalContent")
+            .innerHTML = `
+
+                <div class="space-y-6">
+
+                    <!-- Title -->
+                    <h2 class="text-3xl font-bold text-gray-800">
+
+                        ${issue.title}
+                    </h2>
+                    <!-- Top -->
+                    <div class="flex items-center gap-4 flex-wrap">
+
+                        <p class="${statusColor} text-white px-4 py-1 rounded-full text-xs">
+                            ${issue.status}
+                        </p>
+                        <p class="text-sm text-gray-500">
+                            Opened by ${issue.assignee || "Unknown"}
+                        </p>
+                    </div>
+                    <!-- Tags -->
+                    <div class="flex gap-3 flex-wrap">
+                        <p class="bg-red-100 text-red-500 px-3 py-1 rounded-full text-xs">
+                            BUG
+                        </p>
+                        <p class="bg-yellow-100 text-yellow-700 px-3 py-1 rounded-full text-xs">
+                            HELP WANTED
+                        </p>
+                    </div>
+                    <!-- Description -->
+                    <p class="text-gray-600 leading-8">
+                        ${issue.description}
+                    </p>
+                    <!-- Info -->
+                    <div class="bg-gray-50 rounded-2xl p-5 grid grid-cols-2 gap-6">
+                        <div>
+                            <p class="text-sm text-gray-400">
+                                Assignee:
+                            </p>
+                            <h2 class="font-bold mt-2">
+                                ${issue.assignee || "Unknown"}
+                            </h2>
+                        </div>
+                        <div>
+
+                            <p class="text-sm text-gray-400">
+
+                                Priority:
+
+                            </p>
+
+                            <p class="${priorityColor} text-white text-xs px-3 py-1 rounded-full inline-block mt-2 uppercase">
+
+                                ${issue.priority}
+
+                            </p>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            `;
+            document.getElementById("issueModal")
+            .showModal();
+
+        }
+
