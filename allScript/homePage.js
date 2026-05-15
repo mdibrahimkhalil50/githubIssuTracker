@@ -358,3 +358,4 @@ document.getElementById("modalContent")
 
         }
 
+ loadIssues();
