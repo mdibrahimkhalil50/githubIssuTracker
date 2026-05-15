@@ -165,3 +165,62 @@ const URL =
             }
 
         }
+
+        function setActiveButton(buttonId) {
+            // Reset
+            document.getElementById("allBtn")
+            .className =
+            "btn rounded-full px-8 bg-white text-black border";
+
+            document.getElementById("openBtn")
+            .className =
+            "btn rounded-full px-8 bg-white text-black border";
+            document.getElementById("closedBtn")
+            .className =
+            "btn rounded-full px-8 bg-white text-black border";
+            // Active
+            document.getElementById(buttonId)
+            .className =
+            "btn rounded-full px-8 bg-[#4A00FF] text-white border-none";
+
+        }
+ function showAll() {
+            displayIssues(issues);
+            setActiveButton("allBtn");
+
+        }
+
+        function showOpen() {
+            const openIssues = [];
+            for(let i = 0; i < issues.length; i++) {
+
+                if(issues[i].status === "open") {
+                    openIssues.push(issues[i]);
+                }
+            }
+            displayIssues(openIssues);
+            setActiveButton("openBtn");
+
+        }
+
+        function showClosed() {
+
+            const closedIssues = [];
+
+
+
+            for(let i = 0; i < issues.length; i++) {
+
+                if(issues[i].status === "closed") {
+
+                    closedIssues.push(issues[i]);
+
+                }
+
+            }
+
+            displayIssues(closedIssues);
+
+            setActiveButton("closedBtn");
+
+        }
